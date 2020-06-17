@@ -1,0 +1,84 @@
+Name: Joshua Stone
+ID: 1013900
+Email: jstone04@uoguelph.ca
+Date: February 11, 2019
+Assign 2
+
+Design
+
+1.1 - This is a pretty simple program. I read char by char from the file
+and threw them into a buffer. Then, I string separate based on each space,
+converted the string to unsigned long, and put them into an array of
+unsigned long integers. Then, we compare each index to every other index
+in the array and check for inversions.
+
+Sudo code for the algorithm looks like:
+for i <- 0 to total nums, do
+	for j <- 0 to total nums, do
+		if array[i] > array[j]
+			increment inversionCounter
+
+Since this algorithm is the summation of i^2, the result is n(n-1)/2
+
+Efficency = O(n^2)
+
+1.2 - This mergesort program was a lot more complex than 1.1. For this
+program, I went about parsing the same way as 1.1 since it is the same
+data file; We string separate the buffer based on white space and put
+each integer (unsigned long) into a 1D array. MergesortAlgorithm basically
+splits the array by finding the center and recursively passing the right
+and left arrays. mergeArrays brings the broken down array back together
+and sorts them in into ascending order as well as counts the inversions.
+I based my modified implementation of mergesort to find the inversions
+off a simple mergesort found on geeksforgeeks.com
+
+Sudo code for the algorithm looks like:
+mergesortAlgorithm(array[0...n-1], leftIndex, totalNumbers)
+if total numbers > left index
+	Center = total + left / 2
+	inversionCounter <- mergesortAlgorithm(left to center)
+	inversioncounter <- mergesortAlgorithm(center + 1 to total)
+	inversionCounter <- mergeArrays()
+return inversionCounter
+
+mergeArrays(arrayToMerge, array[], center, left, total)
+if first value is less than second val
+	split left
+else
+	split right
+
+while i is less than center
+	copy extra nums
+
+while j is less than total
+	copy extra nums
+
+while i is less than leftIndex
+	put elements back into arrayOfNums
+
+Efficeny = O(n Logn)
+
+1.3 - Program 1.1 was much, much slower than program 1.2. On my machine,
+program 1.2 took about 15s to complete. Program 1.2 took about 0.4s to
+complete. Thus, it is a bit more than 30x faster.
+
+2.1 - Unfortunately, I could not complete this program. (It is currently
+5:30am at the time of typing this and I just couldn't get it to run). My
+parser works great for reading all pairs of integers into xVals array and
+yVals array.
+
+The efficeny of brute force convex hull problem is O(n^3)
+
+The algorithm is as follow:
+
+Convex hull: smallest convex set that includes given points
+ Assume points are sorted by x-coordinate values
+ Identify extreme points P1 and P2
+ (leftmost and rightmost)
+ Compute upper hull recursively:
+ find point Pmax that is farthest away from line P1P2
+ compute the upper hull of the points to the left of line P1Pmax
+ compute the upper hull of the points to the left of line PmaxP2
+ Compute lower hull in a similar manner
+
+2.2 - Unfortunately, I did not attempt this program
